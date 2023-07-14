@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<title> FLORERIA </title>
+
+</head>
+<body>
+<h1>FLOREIRA </h1>>
+
+{% with mensajes= get_flashed_messages() %}
+{% if mensajes %}
+   {% for msj in mensajes %}
+      <h3> {{msj}}</h3>
+   {% endfor %}
+{% endif %}
+{% endwith %}
+<h1> 
+
+    
+
+    <br>
+    <form action="/guardar" method="POST">
+
+        <input type ="text" name="txtTitulo" placeholder="Escribe titulo">
+        <input type ="text" name="txtArtista" placeholder="Escribe artisa">
+        <input type ="number" name="txtAnio" placeholder="Escribe Año">
+        
+        <button type="submit">Guardar</button>
+
+    </form>
+<br>
+<br>
+
+<h1>Guardados</h1>
+<br>
+<table>
+
+ <thead>
+   <tr>
+    <td>Id: </td>
+    <td>nombre: </td>
+    <td>canrtidad: </td>
+    <td>precio: </td>
+   </tr>
+ </thead>
+
+  <tbody>
+    {% for fruta in listFLores %}
+    <tr>
+        <td> {{fruta.1}} </td>
+        <td> {{fruta.2}} </td>
+        <td> {{fruta.3}} </td>
+        <td> {{fruta.4}} </td>
+        <td>
+            <a href=/editar/{{fruta.3}}> Editar </a>
+            <a href=/eliminar/{{fruta.3}}> Borrar </a>
+        </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+
+
+
+
+
+
